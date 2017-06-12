@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+  </head>
+  <body>
+  	
+  	<%- include('me.ejs') %>
+  	<%- include('header.ejs') %>
+  	<form action="/users/liuyan" method="post">
+  		<div><span>您的邮箱(方便回访)</span><input type="text" class="form-control" name="title" required="required"></div>
+  		<div><span>反馈内容：</span><textarea rows="10" class="form-control" name="content"></textarea></div>
+  		<input type="submit" value="发送" class="btn btn-danger"/>
+  	</form>
+  	<h2>意见反馈列表(所有人可见)</h2>
+  	<table class="table">
+  		<tr>
+  			<th>序号</th>
+  			<th>用户邮箱(所有人可见)</th>
+  			<th>内容</th>
+  		</tr>
+  		<% result.forEach(function(item,i){%>
+  		<tr>
+  			<td><%- i %></td>
+  			<td><%- item.bt %></td>
+  			<td><%- item.nr %></td>
+  		</tr>
+  		<%}) %>
+  	</table>
+  </body>
+</html>

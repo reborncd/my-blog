@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<div id="ball" title="移进停止移出运动点击消失刷新归来"><span>作者：常东东<br/>英文名：reborncd</span></div>
+  </body>
+  <script type="text/javascript">
+	
+				var
+					oBall = document.getElementById("ball"),
+					iSpeedX = 10,
+					iSpeedY = 30,
+					x = oBall.offsetLeft,
+					y = oBall.offsetTop,
+					winW = document.documentElement.clientWidth - document.getElementById("ball").offsetWidth,
+					winH = document.documentElement.clientHeight - document.getElementById("ball").offsetHeight;
+				var oTimer = setInterval(move, 20);
+
+				function move() {
+					oBall.style.left = x + 'px';
+					oBall.style.top = y + 'px';
+					x = x + (iSpeedX ? -1 : 1);
+					if(x < 0) { iSpeedX = 0 }
+					if(x > winW) { iSpeedX = 1 }
+					y = y + (iSpeedY ? -1 : 1);
+					if(y < 0) { iSpeedY = 0 }
+					if(y > winH) { iSpeedY = 1 }
+				}
+				oBall.onmouseover = function() { clearInterval(oTimer) };
+				oBall.onmouseout = function() { oTimer = setInterval(move, 20) };
+				oBall.onclick=function(){oBall.style.display='none'}
+			
+</script>
+</html>

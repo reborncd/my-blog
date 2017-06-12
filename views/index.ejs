@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>我的博客</title>
+		<script type="text/javascript" src="/javascripts/jquery-1.11.0.js"></script>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+		<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			/* Custom Styles */
+			
+			ul.nav-tabs {
+				width: 140px;
+				margin-top: 20px;
+				border-radius: 4px;
+				border: 1px solid #ddd;
+				box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+			}
+			
+			ul.nav-tabs li {
+				margin: 0;
+				border-top: 1px solid #ddd;
+			}
+			
+			ul.nav-tabs li:first-child {
+				border-top: none;
+			}
+			
+			ul.nav-tabs li a {
+				font-size: 24px;
+				color: #bc9c17;
+				margin: 0;
+				padding: 8px 16px;
+				border-radius: 0;
+			}
+			
+			ul.nav-tabs li.active a,
+			ul.nav-tabs li.active a:hover {
+				color: #fff;
+				background: #0088cc;
+				border: 1px solid #0088cc;
+			}
+			
+			ul.nav-tabs li:first-child a {
+				border-radius: 4px 4px 0 0;
+			}
+			
+			ul.nav-tabs li:last-child a {
+				border-radius: 0 0 4px 4px;
+			}
+			
+			ul.nav-tabs.affix {
+				top: 30px;
+				/* Set the top position of pinned element */
+			}
+		</style>
+	</head>
+
+	<body>
+		<%- include('me.ejs') %>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="https://github.com/reborncd/VMall" title="follow me!">My Github</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a onclick="location.href='/'" title="回到首页">首页 <span class="sr-only">(current)</span></a>
+						</li>
+						<li>
+							<a onclick="location.href='/blog'" title="创建属于你的博客" class="button">你的博客</a>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">More about me <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="javascript:;" onclick="location.href='/gallery'">Gallery</a>
+								</li>
+								<li>
+									<a href="javascript:;">My hobbys</a>
+								</li>
+								<li>
+									<a href="javascript:;">Contact me?</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
+						</div>
+						<button type="submit" class="btn btn-default">搜素</button>
+					</form>
+					<ul class="navbar-right">
+						<% if(!user){ %>
+						<input type="button" class="btn btn-success" value="登录" onclick="location.href='/login'" />
+						<input type="button" class="btn btn-info" value="注册" onclick="location.href='/register'" />
+						<% }else{ %>
+						<span class="user-show">Welcome back!:<%- user %> </span>
+						<input type="button" class="btn btn-default" value="发布博客" onclick="location.href='/sendblog'" />
+						<input type="button" class="btn btn-warning" value="意见反馈" onclick="location.href='/liuyan'" />
+						<input type="button" class="btn btn-danger" value="注销" onclick="location.href='/out'" />
+						<% }%>
+					</ul>
+
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<h2 class="text-center text-info " style="color: #b2810a;">作者的博客</h2>
+
+		<!--
+        	作者：302701088@qq.com
+        	时间：2017-06-09
+        	描述：我的博客部分
+        -->
+<embed src='/images/Sunburst.mp3' width=0 height=0 type=audio/mpeg loop="true" autostart="true"> 
+		<body data-spy="scroll" data-target="#myScrollspy">
+			<div class="container">
+				<!--<div class="jumbotron">
+					<h1>Bootstrap Affix</h1>
+				</div>-->
+				<div class="row">
+					<div class="col-xs-3" id="myScrollspy">
+						<ul class="nav nav-tabs nav-stacked" data-spy="affix" data-offset-top="125">
+							<li class="active">
+								<a href="#section-1">前言&鸡汤</a>
+							</li>
+							<li>
+								<a href="#section-2">作者简介</a>
+							</li>
+							<li>
+								<a href="#section-3">Dear basketball</a>
+							</li>
+							<li>
+								<a href="#section-4">浅谈前端</a>
+							</li>
+							<li>
+								<a href="#section-5">待续更新</a>
+							</li>
+						</ul>
+					</div>
+					<div class="col-xs-9">
+						<h2 id="section-1">前言&鸡汤</h2>
+						<p>第一次写博客好鸡冻啊！虽然这个博客只能在局域网访问，但是作为小白的我已经非常满足了。前几天尝试着去买了个域名和虚拟主机，啥都不懂的我一顿瞎捣鼓买了两个域名，最后由于没有时间也没有备案，希望以后有时间的话把网站搭建好之后把这个博客上传一下,这件事情可能也会遥遥无期。学习H5也快有3个月了，从无到有感觉自己收获了很多，主要是产生了兴趣，正像我热爱英语，热爱篮球一样。当你对你所作的事情产生兴趣的时候，你会把所有精力放在其中，反之就是一种敷衍。</p>
+						<p>如果你希望成功，以恒心为良友，以经验为参谋，以小心为兄弟，以希望为哨兵。最美的风景永远都在路上 ，一生中至少要有两次冲动 ，一次为奋不顾身的爱情，一次为说走就走的旅行。乐观的人看什么都乐观，无论到哪里，都会受到别人的欢迎，而且，成功和健康也会伴随他。悲观的人则恰恰相反。我们要保持着一种乐观的心态，做一个乐观者，我们的人生才会散发光彩。成功是什么？就是走过了所有通向失败的路，只剩下一条路，那就是成功的路。生活需要不断的刷新，只要你微笑地面对生活，生活就会给你一个灿烂的微笑。记住，宁可辛苦，也别贪图享乐。一个人生活虽然很难，但也必须学会一个人，不要轻易依赖别人。想要自己没有过的体验，就必须要放弃一些东西。这个世界没有绝对的两全之计，只有你更想要的是什么。你想自在，就要放弃挑战。你想前行，就要放弃停留。你想不被人笑，一辈子就只能活一个样子。</p>
+						<hr>
+						<h2 id="section-2">作者简介</h2>
+						<p>姓名：常东东<br>英文名：reborncd<br>手 机：18749972854<br>E-mail：302701088@qq.com <br>QQ：302701088 <br>Github：https://github.com/reborncd/VMall<br>个人简述： 我是一个喜欢英文，喜欢篮球的boy，平常最喜欢看篮球比赛，喜欢看美剧，美国大片。基本上都是漫威和dc出的。例如：闪电侠，绿箭侠，超级少女。神盾局特工，明日传奇，我是僵尸，末日孤舰，女子监狱，行尸走肉，越狱，格林，吸血鬼日记。</p>
+						<p>1、Genius only means hard-working all one's life. (Mendeleyev Russian chemist) 天才只意味着终身不懈地努力。（俄国化学家 门捷列耶夫） 2、The man who has made up his mind to win will never say "impossible ". (Bonaparte Napoleon ,French emperor ) 凡是决心取得胜利的人是从来不说"不可能的"。( 法国皇帝 拿破仑. B.) 3、There is no such thing as a great talent without great will - power. (Balzac) 没有伟大的意志力，便没有雄才大略。（巴尔扎克） 4、Cease to struggle and you cease to live.（Thomas Carlyle） 生命不止，奋斗不息。（卡莱尔） 5、A strong man will struggle with the storms of fate.(Thomas Addison) 强者能同命运的风暴抗争。（爱迪生） 6、Living without an aim is like sailing without a compass.（John Ruskin） 生活没有目标，犹如航海没有罗盘。（罗斯金） 7、Accept what was and what is, and you’ll have more positive energy to pursue what will be. 接受过去和现在的模样，才会有能量去追寻自己的未来。 8、Enrich your life today,. yesterday is history.tomorrow is mystery. 充实今朝，昨日已成过去，明天充满神奇。
+						</p>
+						<hr>
+						<h2 id="section-3">Dear basketball</h2>
+						<p>Dear Basketball， 　　From the moment 　　I started rolling my dad’s tube socks 　　And shooting imaginary 　　Game-winning shots 　　In the Great Western Forum 　　I knew one thing was real： 　　I fell in love with you。 　　A love so deep I gave you my all — 　　From my mind & body 　　To my spirit & soul。 　　As a six-year-old boy 　　Deeply in love with you 　　I never saw the end of the tunnel。 　　I only saw myself 　　Running out of one。 　　And so I ran。 　　I ran up and down every court 　　After every loose ball for you。 　　You asked for my hustle 　　I gave you my heart 　　Because it came with so much more。 　　I played through the sweat and hurt 　　Not because challenge called me 　　But because YOU called me。 　　I did everything for YOU 　　Because that’s what you do 　　When someone makes you feel as 　　Alive as you’ve made me feel。 　　You gave a six-year-old boy his Laker dream 　　And I’ll always love you for it。 　　But I can’t love you obsessively for much longer。 　　This season is all I have left to give。 　　My heart can take the pounding 　　My mind can handle the grind 　　But my body knows it’s time to say goodbye。 　　And that’s OK。 　　I’m ready to let you go。 　　I want you to know now 　　So we both can savor every moment we have left together。 　　The good and the bad。 　　We have given each other 　　All that we have。 　　And we both know， no matter what I do next 　　I’ll always be that kid 　　With the rolled up socks 　　Garbage can in the corner 　　：05 seconds on the clock 　　Ball in my hands。 　　5 … 4 … 3 … 2 … 1 　　Love you always， 　　Kobe
+
+						</p>
+						<p>亲爱的篮球： 　　从我开始卷起我父亲的圆筒短袜开始 　　开始想象自己在大西部论坛球馆（曾经湖人队的主场）投进制胜球 　　我知道有一件事情是真的： 　　我爱上了你。 　　一种深切的爱，我把我的全部都给了你 　　从我的思想和身体 　　到我的精神和灵魂。 　　当我还是一个六岁的男孩时 　　我深深地爱着你 　　我从来没有看见过隧道的尽头。 　　我只看到我自己 　　用尽力气地奔跑。 　　所以我不停地奔跑。 　　我在每一块球场上来回奔跑 　　为了你去追逐每一个地板球。 　　你渴望我的拼抢 　　我把我的心交给你 　　因为它意味着更多。 　　我带着汗水和伤痛打球 　　并不是因为挑战呼唤我 　　而是因为你呼唤我。 　　我为你做了一切 　　因为那是你应该做的 　　当某个人让你感觉到活力，正如你让我感觉到的。 　　你给了一个六岁男孩他的湖人梦想 　　我将永远爱你这点。 　　但是我无法再痴迷地爱你更久。 　　这个赛季我已经毫无保留。 　　我的心脏能够承受打击 　　我的心态能够应对艰难 　　但是我的身体知道是时候说再见了。 　　那没事。 　　我已经准备好让你走。 　　我希望现在让你知道 　　这样我们都可以尽情地享受剩下的每一刻。 　　无论是好的还是不好的。 　　我们已经给了对方各自的所有。 　　我们都知道，无论下一步我做什么 　　我将永远是那个孩子 　　穿着卷起的袜子 　　垃圾桶在角落里 　　倒数五秒 　　球在我的手里。 　　永远爱你， 　　科比
+
+						</p>
+						<hr>
+						<h2 id="section-4">浅谈前端</h2>
+						<p>程序设计之道无远弗届，御晨风而返。———— 杰佛瑞 · 詹姆士 我所遇到的前端程序员分两种： 第一种一直在问：如何学习前端？ 第二种总说：前端很简单，就那么一点东西。 我从没有听到有人问：如何做一名优秀、甚至卓越的WEB前端工程师。 如何成为一名优秀的web前端工程师 何为：前端工程师？ 前端工程师，也叫Web前端开发工程师。他是随着web发展，细分出来的行业。 Web前端开发技术主要包括三个要素：HTML、CSS和JavaScript！ 它要求前端开发工程师不仅要掌握基本的Web前端开发技术，网站性能优化、SEO和服务器端的基础知识，而且要学会运用各种工具进行辅助开发以及理论层面的知识，包括代码的可维护性、组件的易用性、分层语义模板和浏览器分级支持等。 随着近两三年来RIA（Rich Internet Applications的缩写，中文含义为：丰富的因特网应用程序）的流行和普及带来的诸如：Flash/Flex，Silverlight、XML和服务器端语言（PHP、ASP.NET，JSP、Python）等语言，前端开发工程师也需要掌握。 前端开发的入门门槛其实很低，与服务器端语言先慢后快的学习曲线相比，前端开发的学习曲线是先快后慢。 HTML 甚至不是一门语言，他仅仅是简单的标记语言！ CSS 只是无类型的样式修饰语言。当然可以勉强算作弱类型语言。 Javascript 的基础部分相对来说不难，入手还算快。 也正因为如此，前端开发领域有很多自学成“才”的同行，但大多数人都停留在会用的阶段，因为后面的学习曲线越来越陡峭，每前进一步都很难。 Web前端技术有一些江湖气，知识点过于琐碎，技术价值观的博弈也难分伯仲，即全局的系统的知识结构并未成体系，这些因素也客观上影响了“正统“前端技术的沉淀！而且各种“奇技淫巧”被滥用，前端技术知识的传承也过于泛泛，新人难看清时局把握主次。因此，前端技术领域，为自己觅得一个靠谱的师兄，重要性要盖过项目、团队、公司、甚至薪水。 另一方面，正如前面所说，前端开发是个非常新的职业，对一些规范和最佳实践的研究都处于探索阶段。 总有新的灵感和技术不时闪现出来，例如CSS sprite、负边距布局、栅格布局等； 各种JavaScript框架层出不穷，为整个前端开发领域注入了巨大的活力； 浏览器大战也越来越白热化，跨浏览器兼容方案依然是五花八门。 为了满足“高可维护性”的需要，需要更深入、更系统地去掌握前端知识，这样才可能创建一个好的前端架构，保证代码的质量。 随着手持设备的迅猛发展，带动了 HTML5行业标准的快速发展。web领域的技术，大概有10年都没有大的更新了！ 现在市场很需要优秀的、高级的前端工程师。 一方面是因为这是一个比较新的细分行业，而且前端程序员大都自学一部分，知识结构不系统；另一方面，大学里面没有这种课程，最最重要的是：北大青鸟这类培训机构也没有专门的前端工程师的培训课程！！ 吴亮在《JavaScript 王者归来》第一张的序里面说：大多数程序员认为 Javascript 过于简陋，只适合一些网页上面花哨的表现，所以不愿花费精力去学习，或者以为不学习就能掌握。 实际上，一门语言是否脚本语言，往往是她的设计目标决定，简单与复杂并不是区分脚本语言和非脚本语言的标准。 事实上，在脚本语言里面，Javascript 属于相当复杂的一门语言，他的复杂度即使放在非脚本语言中来衡量，也是一门相当复杂的语言！ Javascript 的复杂度不逊色于 Perl 和 Python！ 如何学习前端知识？ 我们生活在一个充满规则的宇宙里面。社会秩序按照规则运行，计算机语言几乎全部是规则的集合。计算机前辈们定义规则，规则约束我们，我们用规则控制数据。大部分时候，对数据的合理控制，来自于你对规则的掌握。 学习 HTML，CSS 应该先跟着书仔细、扎实的学一遍。然后就需要做大量的练习，做各种常规的、奇怪的、大量的布局练习来捆固、理解自己的知识。 而学习 Javascript 首先要知道这门语言可以做什么，不能做什么，擅长做什么，不擅长做什么！ 如果你只想当一个普通的前端程序员，你只需要记住大部分 Javascript 函数，做一些练习就可以了。 如果你想当深入了解Javascript，你需要了解 Javascript 的原理，机制。需要知道他们的本源，需要深刻了解 Javascript 基于对象的本质。 还需要 深刻了解 浏览器宿主 下 的 Javascript 的行为、特性。 因为历史原因，Javascript一直不被重视，有点像被收养的一般！ 所以他有很多缺点，各个宿主环境下的行为不统一、内存溢出问题、执行效率低下等问题。 作为一个优秀的前端工程师还需要深入了解、以及学会处理 Javascript 的这些缺陷。 那么一名优秀的、甚至卓越的 前端开发工程师的具备什么条件？ 首先，优秀的Web前端开发工程师要在知识体系上既要有广度和深度！做到这两点，其实很难。所以很多大公司即使出高薪也很难招聘到理想的前端开发工程师。技术非黑即白，只有对和错，而技巧则见仁见智。 在以前，会一点Photoshop和Dreamweaver的操作，就可以制作网页。 现在，只掌握这些已经远远不够了。无论是开发难度上，还是开发方式上，现在的网页制作都更接近传统的网站后台开发，所以现在不再叫网页制作，而是叫Web前端开发。 Web前端开发在产品开发环节中的作用变得越来越重要，而且需要专业的前端工程师才能做好。 Web前端开发是一项很特殊的工作，涵盖的知识面非常广，既有具体的技术，又有抽象的理念。简单地说，它的主要职能就是把网站的界面更好地呈现给用户。 其次，优秀的Web前端开发工程师应该具备快速学习能力。Web发展的很快，甚至可以说这些技术几乎每天都在变化！如果没有快速学习能力，就跟不上Web发展的步伐。前端工程师必须不断提升自己，不断学习新技术、新模式；仅仅依靠今天的知识无法适应未来。Web的明天与今天必将有天壤之别，而前端工程师的工作就是要搞清楚如何通过自己的Web应用程序来体现这种翻天覆地的变化。 说到这里，我想起了一个大师说过的一句话：对于新手来说，新技术就是新技术。 对于一个高手来说，新技术不过是就技术的延伸。 再者，优秀的前端工程师需要具备良好的沟通能力，因为前端工程师至少都要满足四类客户的需求。 1、产品经理。这些是负责策划应用程序的一群人。他们会想出很多新鲜的、奇怪的、甚至是不可是实现的应用。一般来说，产品经理都追求丰富的功能。 2、UI设计师。这些人负责应用程序的视觉设计和交互模拟。他们关心的是用户对什么敏感、交互的一贯性以及整体的好用性。一般来说，UI设计师于流畅靓丽、但并不容易实现的用户界面，而且他们经常不满前端工程师造成 1px 的误差。 3、项目经理。这些人负责实际地运行和维护应用程序。项目管理的主要关注点，无外乎正常运行时间、应用程序始终正常可用的时间、性能和截止日期。项目经理追求的目标往往是尽量保持事情的简单化，以及不在升级更新时引入新问题。 4、最终用户。指的是应用程序的主要消费者。尽管前端工程师不会经常与最终用户打交道，但他们的反馈意见至关重要。最终用户要求最多的就是对个人有用的功能，以及竞争性产品所具备的功能。 Yahoo 公司 ，YUI 的开发工程师 Nicholas C. Zakas 认为： 前端工程师是计算机科学职业领域中最复杂的一个工种。绝大多数传统的编程思想已经不适用了，为了在多种平台中使用，多种技术都借鉴了大量软科学的知识和理念。成为优秀前端工程师所要具备的专业技术，涉及到广阔而复杂的领域，这些领域又会因为你最终必须服务的各方的介入而变得更加复杂。专业技术可能会引领你进入成为前端工程师的大门，但只有运用该技术创造的应用程序以及你跟他人并肩协同的能力，才会真正让你变得优秀。
+						</p>
+						<hr>
+						<h2 id="section-5">待续更新</h2>
+						<p>Nam eget purus nec est consectetur vehicula. Nullam ultrices nisl risus, in viverra libero egestas sit amet. Etiam porttitor dolor non eros pulvinar malesuada. Vestibulum sit amet est mollis nulla tempus aliquet. Praesent luctus hendrerit arcu non laoreet. Morbi consequat placerat magna, ac ornare odio sagittis sed. Donec vitae ullamcorper purus. Vivamus non metus ac justo porta volutpat.</p>
+						<p>Vivamus mattis accumsan erat, vel convallis risus pretium nec. Integer nunc nulla, viverra ut sem non, scelerisque vehicula arcu. Fusce bibendum convallis augue sit amet lobortis. Cras porta urna turpis, sodales lobortis purus adipiscing id. Maecenas ullamcorper, turpis suscipit pellentesque fringilla, massa lacus pulvinar mi, nec dignissim velit arcu eget purus. Nam at dapibus tellus, eget euismod nisl. Ut eget venenatis sapien. Vivamus vulputate varius mauris, vel varius nisl facilisis ac. Nulla aliquet justo a nibh ornare, eu congue neque rutrum.</p>
+						<p>Suspendisse a orci facilisis, dignissim tortor vitae, ultrices mi. Vestibulum a iaculis lacus. Phasellus vitae convallis ligula, nec volutpat tellus. Vivamus scelerisque mollis nisl, nec vehicula elit egestas a. Sed luctus metus id mi gravida, faucibus convallis neque pretium. Maecenas quis sapien ut leo fringilla tempor vitae sit amet leo. Donec imperdiet tempus placerat. Pellentesque pulvinar ultrices nunc sed ultrices. Morbi vel mi pretium, fermentum lacus et, viverra tellus. Phasellus sodales libero nec dui convallis, sit amet fermentum sapien auctor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed eu elementum nibh, quis varius libero.</p>
+						<p>Morbi sed fermentum ipsum. Morbi a orci vulputate tortor ornare blandit a quis orci. Donec aliquam sodales gravida. In ut ullamcorper nisi, ac pretium velit. Vestibulum vitae lectus volutpat, consequat lorem sit amet, pulvinar tellus. In tincidunt vel leo eget pulvinar. Curabitur a eros non lacus malesuada aliquam. Praesent et tempus odio. Integer a quam nunc. In hac habitasse platea dictumst. Aliquam porta nibh nulla, et mattis turpis placerat eget. Pellentesque dui diam, pellentesque vel gravida id, accumsan eu magna. Sed a semper arcu, ut dignissim leo.</p>
+						<p>Sed vitae lobortis diam, id molestie magna. Aliquam consequat ipsum quis est dictum ultrices. Aenean nibh velit, fringilla in diam id, blandit hendrerit lacus. Donec vehicula rutrum tellus eget fermentum. Pellentesque ac erat et arcu ornare tincidunt. Aliquam erat volutpat. Vivamus lobortis urna quis gravida semper. In condimentum, est a faucibus luctus, mi dolor cursus mi, id vehicula arcu risus a nibh. Pellentesque blandit sapien lacus, vel vehicula nunc feugiat sit amet.</p>
+					</div>
+				</div>
+			</div>
+			<script type="text/javascript">
+			</script>
+		</body>
+
+</html>

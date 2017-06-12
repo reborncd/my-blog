@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>博客文章列表</title>
+		<link rel='stylesheet' href='/stylesheets/style.css' />
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+	</head>
+
+	<body>
+		<%- include('header.ejs') %>
+		<%- include('me.ejs') %>
+
+		<% if(!user){ %>
+		<button class="btn btn-primary" style="display: block;margin: 0 auto;" onclick="location.href='/login'">请先登录</button><br />
+		<button style="display: block;margin: 0 auto;" class="btn btn-info" onclick="location.href='/register'">无账号去注册</button>
+		<%}else{%>
+
+		<div class="panel-group" id="accordion">
+			<% result.forEach(function(item){ %>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href=".collapseThree">
+					<%- item.bt %>
+				</a>
+			</h4>
+				</div>
+				<div class="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<%- item.nr %>
+					</div>
+				</div>
+			</div>
+			<% }) %>
+		</div>
+
+		<% } %>
+		<script type="text/javascript">
+			
+				console.log($('.collapseThree'));
+				$('.collapseThree').each(function(i){
+					$('.collapseThree').eq(i).collapse('toggle');
+				})
+		</script>
+	</body>
+
+</html>

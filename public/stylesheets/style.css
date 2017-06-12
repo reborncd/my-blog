@@ -1,0 +1,88 @@
+body {
+	min-height:100%;
+	background: url(../images/bg.jpg) repeat-y;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-size: 100%;
+	z-index: 10;
+}
+
+a {
+	color: #00B7FF;
+	cursor: pointer;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: yellow;
+	color: red;
+	font-size: 26px;
+}
+
+p {
+	color: royalblue;
+	background: white;
+	opacity: .5;
+	font-size: 26px;
+}
+
+.table {
+	background: white;
+}
+
+.user-show {
+	display: inline-block;
+	background: #46B8DA;
+	color: white;
+	padding: 5px 5px;
+	border-radius: 5px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.navbar-right {
+	float: right;
+	margin-top: 10px;
+}
+
+#ball {
+	width: 200px;
+	height: 120px;
+	background: url(../images/35DF4DC70F77777C9C3DEBB95548EFDC.png) no-repeat center center;
+	background-size: cover;
+	border-radius: 20px;
+	position: absolute;
+	opacity: .9;
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	line-height: 60px;
+	z-index: 10;
+}
+.empty{
+	background: white;
+	width: 100%;
+	font-size: 24px;
+	color: red;
+	text-align: center;
+}
+.login-form{
+	width: 300px;
+	height: 400px;
+	margin: 0 auto;
+}
+span{
+	font-size: 24px;
+}
+.item img{
+	display: block;
+	width: 650px;
+	margin: 0 auto;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>专属于你的博客</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <style type="text/css">
+    	.list li{
+    		font-size: 24px;
+    	}
+    	.list li:nth-child(1){
+    		color: #449D44;
+    	}
+    	.list li:nth-child(2){
+    		color: #C9302C;
+    	}
+    	.list li:nth-child(3){
+    		color: #E4B9C0;
+    	}
+    </style>
+  </head>
+  <body>
+  	<%- include('header.ejs') %>
+  	<%- include('me.ejs') %>
+  	<ul class="list">
+  		<li><marquee behavior="alternate" scrollamount="7"> 以此来致敬我的偶像Kobe Bryant</marquee></li>
+  		<li><marquee behavior="alternate" scrollamount="3"> 欢迎您的登录，在此你将开启你的博客之旅</marquee></li>
+  		<li><marquee behavior="alternate" scrollamount="5"> 博客版本1.0更新于2017-6-10</marquee></li>
+  	</ul>
+  	<div class="login-form">
+  	<form action="/users/login" method="post">
+  		<div><span class=" text-center text-info ">用户名：</span>&nbsp;&nbsp;<input type="text" class="form-control-static" name="account" required="required"></div><br />
+  		<div><span class=" text-center text-info">密&nbsp;&nbsp;&nbsp;码：</span>&nbsp;&nbsp;<input type="text" class="form-control-static" name="password" required="required"></div><br />
+  		<input type="submit" value="登录" class="btn btn-danger"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  		<input type="submit" value="无账号去注册" class="btn btn-info" onclick="location.href='/register'"/>
+  	</form>
+  	</div>
+  </body>
+</html>

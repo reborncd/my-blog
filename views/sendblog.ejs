@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <style type="text/css">
+    	.list li{
+    		font-size: 24px;
+    	}
+    	.list li:nth-child(1){
+    		color: #449D44;
+    	}
+    	.list li:nth-child(2){
+    		color: #C9302C;
+    	}
+    	.list li:nth-child(3){
+    		color: #E4B9C0;
+    	}
+    </style>
+  </head>
+  <body>
+  	<%- include('me.ejs') %>
+  	<%- include('header.ejs') %>
+  	<ul class="list">
+  		<li><marquee behavior="alternate" scrollamount="7">严禁发布人身攻击，谩骂博客</marquee></li>
+  		<li><marquee behavior="alternate" scrollamount="3">严禁发布广告，含免费资料里面带有广告或者文章里面带有广告</marquee></li>
+  		<li><marquee behavior="alternate" scrollamount="5">不建议大家在博客发表政治问题的看法，特别是敏感的政治问题</marquee></li>
+  		<li><marquee behavior="alternate" scrollamount="7">如有其他问题请在意见里反馈，或者联系作者</marquee></li>
+  	</ul>
+  	<form action="/users/sendblog" method="post">
+  		<div><span>博客标题：</span><input type="text" class="form-control" name="title" required="required"></div>
+  		<div><span>博客内容：</span><textarea rows="10" class="form-control" name="content"></textarea></div>
+  		<input style="display:block;width:200px;height:46px;margin: 0 auto;" type="submit" value="发布博客" class="btn btn-danger"/>
+  	</form>
+  </body>
+</html>
